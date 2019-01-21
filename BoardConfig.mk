@@ -22,6 +22,8 @@
 #
 
 LOCAL_PATH := device/motorola/chef
+ALLOW_MISSING_DEPENDENCIES :=true
+export LC_ALL=C
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sdm660
