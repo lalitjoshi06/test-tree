@@ -54,10 +54,16 @@ subsystem sound
 /dev/hwbinder             0666   root       root
 /dev/vndbinder            0666   root       root
 
+#For ATT IQI
+/dev/iqi_bridge           0660   system     bridge_rw
+
 /dev/pmsg0                0222   root       log
 
 # the msm hw3d client device node is world writable/readable.
 /dev/msm_hw3dc            0666   root       root
+
+# the DIAG device node is not world writable/readable.
+/dev/diag                 0660   system     qcom_diag
 
 # gpu driver for adreno200 is globally accessible
 /dev/kgsl                 0666   root       root
@@ -66,7 +72,6 @@ subsystem sound
 /dev/dri/*                0666   root       graphics
 
 # these should not be world writable
-/dev/diag                 0660   radio      radio
 /dev/diag_arm9            0660   radio      radio
 /dev/ttyMSM0              0600   bluetooth  bluetooth
 /dev/uhid                 0660   uhid       uhid
@@ -77,6 +82,7 @@ subsystem sound
 /dev/graphics/*           0660   root       graphics
 /dev/msm_hw3dm            0660   system     graphics
 /dev/input/*              0660   root       input
+/dev/v4l-touch*           0660   root       input
 /dev/eac                  0660   root       audio
 /dev/cam                  0660   root       camera
 /dev/pmem                 0660   system     graphics
@@ -134,3 +140,4 @@ subsystem sound
 
 # DVB API device nodes
 /dev/dvb*                 0660   root       system
+
